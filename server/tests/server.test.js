@@ -51,11 +51,9 @@ describe('POST /todos', () => {
   });
 
   it('should not create todo with invalid body data', (done) => {
-    var text = false;
-
     request(app)
     .post('/todos')
-    .send({})
+    .send()
     .expect(400)
     .end((err, res) => {
       if(err) {
@@ -68,9 +66,6 @@ describe('POST /todos', () => {
     })
   })
 });
-
-
-
 
 describe('GET /todos', () => {
   it('should get all todos', (done) => {
